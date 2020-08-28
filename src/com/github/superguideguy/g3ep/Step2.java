@@ -3,8 +3,9 @@ package com.github.superguideguy.g3ep;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
-public class Step1 {
+public class Step2 {
 
 	private static void zeroOut(byte[] ROM, int startInclusive, int endExclusive) {
 		for (int i = startInclusive; i < endExclusive; ++i) ROM[i] = 0;
@@ -20,6 +21,7 @@ public class Step1 {
 
 	private static String getGameCode(int game, int language, int version) {
 		String gameCode = null;
+
 		switch (game) {
 			case 'V':
 			case 'P':
@@ -42,6 +44,7 @@ public class Step1 {
 				System.err.println("ERROR: Unrecognized Game Code. Please use a supported ROM.");
 				System.exit(0);
 		}
+
 		switch (version) {
 			case 1:
 				if (game == 'E') {
@@ -58,6 +61,7 @@ public class Step1 {
 				System.err.println("ERROR: Unrecognized Game Version. Please use a supported ROM.");
 				System.exit(0);
 		}
+
 		switch (language) {
 			case 'E':
 				gameCode = gameCode + "" + "E";
@@ -68,10 +72,11 @@ public class Step1 {
 						"ERROR: Unrecognized Game Language. Only English is supported. Please use a supported ROM.");
 				System.exit(0);
 		}
+
 		return gameCode;
 	}
 
-	static void step1(String[] args) throws IOException {
+	static boolean step2(String[] args) throws IOException {
 		// A: Read sourceRom bytes
 		// B: Find target hex string
 		/* Program start 0x7140, end 0x7182 (excl.)
@@ -79,8 +84,6 @@ public class Step1 {
 		 * (0000 7150: 08 40 00 28 12 D0 91 88  01 23 18 1C 08 40 00 28)
 		 * (0000 7160: 0C D0 90 68 18 40 00 28  08 D0 91 89 18 1C 08 40)
 		 * (0000 7170: 00 28 03 D0 01 20 02 E0  01 01 00 00 00 20 02 BC)
-		 * Emerald: 	PS=0x1b6a0, ZS=0x1b6ae, ZE=0x1b6d7, PE=0x1b6eb
-		 * LeafGreen:	Search for "00b5 021c 1168 0c48 8142 17d1"
 		 */
 		// C: Modify target hex string (0x714C - 0x7173 incl. zeroed)
 		// D: Write bytes to destRom
@@ -97,13 +100,22 @@ public class Step1 {
 			case "G0E":
 				System.err.println(
 						"ERROR: FireRed and LeafGreen v1.0 are currently unsupported. Please use a supported ROM.");
+				System.exit(0);
+				break;
 			case "G1E":
 				zeroOut(ROM, 0x144428, 0x144468);
 				break;
 			case "E0E":
-				//zeroOut(ROM, ____, ____); // TODO
+				zeroOut(ROM, 0x1b6a0, 0x1b6ec);
+				break;
+
+			default:
+				System.err.println("BUG: This code path should be inacccessable. Report to project maintainer.");
+				System.exit(0);
 		}
 
+		Files.write(Paths.get(args[1]), ROM, StandardOpenOption.TRUNCATE_EXISTING);
+		return (game == 'E');
 	}
 
 }
