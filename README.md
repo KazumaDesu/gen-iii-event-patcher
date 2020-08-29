@@ -9,20 +9,7 @@ The Generation III Pokémon games introduced the Mystery Gift feature. Mystery G
 
 While ACE can be achieved through this program, it is not the primary purpose. Rather, this program is designed to (1) patch a script into a Pokémon FireRed, LeafGreen, or Emerald save file for personal use, and (2) patch the ROM and SAV at the same time to create a distribution ROM.
 
-## Requirements and Dependencies
-Regardless of use case, you will need:
-* Java version 8 or greater. [Here](https://adoptopenjdk.net/) is a link to a download page.
-* The ability to use a terminal. The terminal is your friend.
-
-If you are only patching for yourself, or creating a single-region distribution ROM (see Step 3), you will also need:
-* A supported ROM, which currently includes:
-  * Any non-Japanese FireRed, LeafGreen, or Emerald
-
-If you intend to create a dual-region distribution ROM, you will also need:
-* A supported distribution base ROM, which currently includes:
-  * English Emerald
-  * English LeafGreen v1.1
-* A flash cart of some kind
+NOTE: Because Ruby and Sapphire only support Mystery Event (a slightly different mechanic), they are incompatible with this program. Please use Emerald instead.
 
 ## Installation
 1. Download the latest release [here](https://example.com).
@@ -30,28 +17,25 @@ If you intend to create a dual-region distribution ROM, you will also need:
 3. Done!
 
 ## Usage
-### Step 1: Creating a Save File
-In an emulator that supports SAV files, load the game you wish to patch. Select either "New Game" or "Continue". Once you gain control of your character, save the game TWICE. It is ***extremely*** important that you save twice. Failure to do so may result in corruption. Remember to make a backup as well!
+Different use cases have different dependencies and instructions. Therefore, additional READMEs have been made for various use cases. Please find your use case below, and read the corresponding README.
 
-### Step 2: Patching the SAV
-Open a terminal in the folder downloaded earlier. Type the following command:
-```
-java -jar PersonalPatcher.jar <OldSav> <NewSav> <BinFile>
-```
-Where `<OldSav>` is the filepath to the SAV file you created in step 1, `<NewSav>` is the filepath where the modified SAV should go (it may be empty, and it also may be the same as `<OldSav>`), and `<BinFile>` is the location of the patch. You may create your own BIN files, or use the one provided. `ultimate.bin` will grant access to all event islands, regardless of if the receiving game is FireRed, LeafGreen, or Emerald.
+### I just want to access all of the event islands
+See [README-ENDUSER.md](https://example.com)
 
-If you are only patching for personal use, congratulations! Patching is complete. Simply use the modified SAV file in place of your original SAV file.
+### A friend provided me an event to patch into my save
+See [README-ENDUSER.md](https://example.com)
 
-### Step 3 (optional): Patching the ROM
-If you have an event that is compatible with both FireRed/LeafGreen and Emerald (that is, dual-region, such as `ultimate.bin`), and you intend to distribute it to both FireRed/LeafGreen and Emerald, you will need to patch the distribution ROM itself. However, if the event you wish to use is only meant for one game (that is, single-region), you do not need to patch the ROM. At this point, if you are creating a single-region distribution ROM, continue to Step 4.
+### I want to distibute an event to FireRed, LeafGreen, AND Emerald
+See [README-DUAL-REGION.md](https://example.com)
 
-The patch works by removing the function `ValidateMEventClientHeader`. As the location and assembly code of this function changes between games, the patch is hardcoded into `DistributionPatcher.jar`. As I only have English Emerald and English LeafGreen v1.1, these are the only ROMs suppported for dual-region distribution.
+### I want to distribute an event to only FireRed and LeafGreen (not Emerald)
+See [README-SINGLE-REGION.md](https://example.com)
 
-The command you will need to run is:
-```
-java -jar DistributionPatcher.jar <OldRom> <NewRom>
-```
-Where `<OldRom>` is the filepath to the ROM file you used in step 1, and `<NewRom>` is the filepath where the modified ROM should go (it may be empty, and it also may be the same as `<OldRom>`).
+### I want to distribute an event to only Emerald (not FireRed or LeafGreen)
+See [README-SINGLE-REGION.md](https://example.com)
 
-### Step 4 (optional): Loading the SAV/ROM onto a(n) original/flash cart
-I cannot help you with this. All I can say is that if you patched the ROM, you will need a flash cart.
+### I want to create an event
+See [README-DEVELOPER.md](https://example.com)
+
+### I want to know how to use this program for ACE
+See [README-DEVELOPER.md](https://example.com)
