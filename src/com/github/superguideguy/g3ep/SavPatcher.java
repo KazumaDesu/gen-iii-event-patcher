@@ -278,7 +278,7 @@ public class SavPatcher {
 			0x1EF1,
 			0x0F78, };
 
-
+	//====================================================================================================================//
 
 	private static byte[][] readSaveFile(String savString) {
 		Path		savPath	= Paths.get(savString);
@@ -309,15 +309,15 @@ public class SavPatcher {
 		return dataStart;
 	}
 
-	private static Version getVersion(byte[][] saveData) {
-		int		section0	= getSaveSection(saveData, 0, false);
-		int		gameCode	= saveData[section0][GAME_CODE_LOCATION] + (saveData[section0][GAME_CODE_LOCATION + 1] << 8)
-				+ (saveData[section0][GAME_CODE_LOCATION + 2] << 16)
+	private static SavVersion getVersion(byte[][] saveData) {
+		int			section0	= getSaveSection(saveData, 0, false);
+		int			gameCode	= saveData[section0][GAME_CODE_LOCATION]
+				+ (saveData[section0][GAME_CODE_LOCATION + 1] << 8) + (saveData[section0][GAME_CODE_LOCATION + 2] << 16)
 				+ (saveData[section0][GAME_CODE_LOCATION + 3] << 24);
 
-		Version	version		= null;
-		if (gameCode != 0) version = Version.EMERALD;
-		if (gameCode == 1) version = Version.FRLG;
+		SavVersion	version		= null;
+		if (gameCode != 0) version = SavVersion.EMERALD;
+		if (gameCode == 1) version = SavVersion.FRLG;
 		return version;
 	}
 
@@ -383,12 +383,12 @@ public class SavPatcher {
 		return true;
 	}
 
+	//====================================================================================================================//
 
-
-	static boolean patchSav(String savString, String binString) {
-		byte[][] saveData = readSaveFile(savString);
+	static boolean patchSav(String savStringOld, String savStringNew, String binString) {
+		byte[][] saveData = readSaveFile(savStringOld);
 		if (saveData == null) return false;
-		Version version = getVersion(saveData);
+		SavVersion version = getVersion(saveData);
 
 		if (version == null) return false;
 		int section2 = getSaveSection(saveData, 2, false);
@@ -421,13 +421,13 @@ public class SavPatcher {
 
 		System.err.println(section4);
 
-		return writeSaveFile(savString, saveData);
+		return writeSaveFile(savStringNew, saveData);
 	}
 
 	static boolean extractPatchFromSav(String savString, String binString) {
 		byte[][] saveData = readSaveFile(savString);
 		if (saveData == null) return false;
-		Version version = getVersion(saveData);
+		SavVersion version = getVersion(saveData);
 
 		if (version == null) return false;
 		int		section4	= getSaveSection(saveData, 4, false);
@@ -458,9 +458,16 @@ public class SavPatcher {
 		return true;
 	}
 
+	//====================================================================================================================//
+
+	public static void main(String[] args) {
+		if (patchSav(args[0], args[1], args[2])) return;
+		System.err.println("An error occurred. Please check your save file and try again.");
+	}
+
 }
 
-enum Version {
+enum SavVersion {
 
 	FRLG(0x067, 0x02, 0x2A0), // bit 1: 7654|3210
 	EMERALD(0x40B, 0x08, 0x3AC); // bit 4
@@ -468,7 +475,7 @@ enum Version {
 	final int	mysteryGiftFlagByte, mysteryGiftFlagBit;
 	final int	initialOffset;
 
-	Version(int a, int b, int c) {
+	SavVersion(int a, int b, int c) {
 		mysteryGiftFlagByte = a;
 		mysteryGiftFlagBit = b;
 		initialOffset = c;

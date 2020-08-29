@@ -58,7 +58,7 @@ public class Step2 {
 				break;
 
 			default:
-				System.err.println("ERROR: Unrecognized Game Version. Please use a supported ROM.");
+				System.err.println("ERROR: Unrecognized Game SavVersion. Please use a supported ROM.");
 				System.exit(0);
 		}
 
