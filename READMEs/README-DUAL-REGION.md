@@ -7,7 +7,7 @@ This README is meant for those who wish to distribute an event to FireRed, LeafG
 * A compatible ROM, which currently includes:
   * English LeafGreen v1.1
   * English Emerald
-* A flash cartridge
+* A flash cartridge.
 
 ## Usage
 \[\[TODO\]\]
