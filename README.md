@@ -20,22 +20,22 @@ NOTE: Because Ruby and Sapphire only support Mystery Event (a slightly different
 Different use cases have different dependencies and instructions. Therefore, additional READMEs have been made for various use cases. Please find your use case below, and read the corresponding README.
 
 ### I just want to access all of the event islands
-See [README-ENDUSER.md](https://example.com)
+See [README-END-USERS.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-END-USERS.md)
 
 ### A friend provided me an event to patch into my save
-See [README-ENDUSER.md](https://example.com)
+See [README-END-USERS.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-END-USERS.md)
 
 ### I want to distibute an event to FireRed, LeafGreen, AND Emerald
-See [README-DUAL-REGION.md](https://example.com)
+See [README-DUAL-REGION.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-DUAL-REGION.md)
 
 ### I want to distribute an event to only FireRed and LeafGreen (not Emerald)
-See [README-SINGLE-REGION.md](https://example.com)
+See [README-KANTO-REGION.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-KANTO-REGION.md)
 
-### I want to distribute an event to only Emerald (not FireRed or LeafGreen)
-See [README-SINGLE-REGION.md](https://example.com)
+### I want to distribute an event to only Emerald (not FireRed nor LeafGreen)
+See [README-HOENN-REGION.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-HOENN-REGION.md)
 
 ### I want to create an event
-See [README-DEVELOPER.md](https://example.com)
+See [README-DEVELOPERS.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-DEVELOPERS.md)
 
 ### I want to know how to use this program for ACE
-See [README-DEVELOPER.md](https://example.com)
+See [README-DEVELOPERS.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-DEVELOPERS.md)
