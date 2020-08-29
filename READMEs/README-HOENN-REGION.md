@@ -1,4 +1,4 @@
-# gen-iii-event-patcher for Kanto region distribution
+# gen-iii-event-patcher for Hoenn region distribution
 This README is meant for those who wish to distribute an event to Emerald
 
 ## Dependencies and Requirements
