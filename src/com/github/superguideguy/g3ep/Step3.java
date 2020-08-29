@@ -34,8 +34,8 @@ public class Step3 {
 		for (int i = 29; i < data.length; ++i) for (int j = 0; j < data[i].length; ++j) data[i][j] = (byte) 0xFF;
 	}
 
-	static void step3(String[] args) throws IOException {
-		byte[] SAV_1 = Files.readAllBytes(Paths.get(args[2]));
+	static void step3(String[] args, int argc) throws IOException {
+		byte[] SAV_1 = Files.readAllBytes(Paths.get(args[0 + argc]));
 		if (SAV_1.length != (32 * 4096)) {
 			System.err.println("ERROR: SAV file has incorrect length.");
 			System.exit(0);
@@ -47,8 +47,9 @@ public class Step3 {
 		organizeSavBlock(SAV_2, 14);
 		organizeSavFile(SAV_2);
 
-		Files.write(Paths.get(args[3]), SAV_2[0], StandardOpenOption.TRUNCATE_EXISTING);
-		for (int i = 1; i < SAV_2.length; ++i) Files.write(Paths.get(args[3]), SAV_2[i], StandardOpenOption.APPEND);
+		Files.write(Paths.get(args[1 + argc]), SAV_2[0], StandardOpenOption.TRUNCATE_EXISTING);
+		for (int i = 1; i < SAV_2.length; ++i)
+			Files.write(Paths.get(args[1 + argc]), SAV_2[i], StandardOpenOption.APPEND);
 	}
 
 }
