@@ -25,7 +25,7 @@ See [README-END-USERS.md](https://github.com/superguideguy/gen-iii-event-patcher
 ### A friend provided me an event to patch into my save
 See [README-END-USERS.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-END-USERS.md)
 
-### I want to distibute an event to FireRed, LeafGreen, AND Emerald
+### I want to distribute an event to FireRed, LeafGreen, AND Emerald
 See [README-DUAL-REGION.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-DUAL-REGION.md)
 
 ### I want to distribute an event to only FireRed and LeafGreen (not Emerald)
