@@ -12,7 +12,7 @@ While ACE can be achieved through this program, it is not the primary purpose. R
 NOTE: Because Ruby and Sapphire only support Mystery Event (a slightly different mechanic), they are incompatible with this program. Please use Emerald instead.
 
 ## Installation
-1. Download the latest release [here](https://example.com).
+1. Download the latest release of Assets.zip [here](https://github.com/superguideguy/gen-iii-event-patcher/releases).
 2. Unzip the zip file.
 3. Done!
 
