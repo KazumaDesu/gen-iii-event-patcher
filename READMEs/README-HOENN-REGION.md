@@ -14,7 +14,7 @@ Most users will already have a save file. However, it is **vital** that the save
 
 Once the game has been saved twice, create a backup of your save file. If you are on actual hardware, now is the time to rip your save file.
 
-### Step 2: Running the Program
+### Step 2: Running SavPatcher
 Open a terminal window in the folder you installed to. Run the following command:
 ```
 java -jar SavPatcher.jar <OldSav> <NewSav> <BinPatch>
