@@ -39,3 +39,11 @@ See [README-DEVELOPERS.md](https://github.com/superguideguy/gen-iii-event-patche
 
 ### I want to know how to use this program for ACE
 See [README-DEVELOPERS.md](https://github.com/superguideguy/gen-iii-event-patcher/blob/main/READMEs/README-DEVELOPERS.md)
+
+## How you can help
+Right now, the best way you can help is to provide information about different ROMs. Only two ROMs are currently supported for distributing to all games, so more information is key. If you have access to one of the following ROMs, please reply to issue [#7](https://github.com/superguideguy/gen-iii-event-patcher/issues/7). PLEASE DO NOT SEND ME THE ROMS. THAT IS ILLEGAL.
+| ROM     | CRC32    | MD5 | SHA-1 | SHA-256 | Hash Source |
+|-------------------------|----------|-----|-------|---------|-------------|
+|English FireRed BPRE v1.0|`DD88761C`|`E26EE0D44E809351C8CE2D73C7400CDD`|`41CB23D8DCCC8EBD7C649CD8FBB58EEACE6E2FDC`|`3D0C79F1627022E18765766F6CB5EA067F6B5BF7DCA115552189AD65A5C3A8AC`|https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1616 |
+|English FireRed BPRE v1.1|`84EE4776`|`51901A6E40661B3914AA333C802E24E8`|`DD5945DB9B930750CB39D00C84DA8571FEEBF417`|`729041B940AFE031302D630FDBE57C0C145F3F7B6D9B8ECA5E98678D0CA4D059`|https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1672 |
+|English LeafGreen BPGE v1.0|`D69C96CC`|`612CA9473451FA42B51D1711031ED5F6`|`574FA542FFEBB14BE69902D1D36F1EC0A4AFD71E`| Not Listed | https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1617 |
