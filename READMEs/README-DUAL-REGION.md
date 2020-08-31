@@ -34,6 +34,4 @@ The program takes two arguments. `<OldRom>` is the file location of the save fil
 Load the save file and the ROM onto a flash cartridge. The method varies across the different models, so detailed advice cannot be given here.
 
 ### Step 5: Begin Distribution
-Connect a Wireless Adapter, and select `Mystery Gift` in the main menu. (`SavPatcher` will automatically enable Mystery Gift for you.)
-
-\[\[TODO\]\]
+Connect a Wireless Adapter, and select `MYSTERY GIFT` in the main menu. (`SavPatcher` will automatically enable Mystery Gift for you.) Select `WONDER CARDS`. On the next screen, press A. In the menu, select `SEND`. Follow on-screen instructions.
