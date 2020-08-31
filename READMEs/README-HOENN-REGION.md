@@ -27,6 +27,4 @@ Make sure that the BIN file is set to be redistributible. `ultimate.bin` has thi
 Either restore the save file to the original cartridge, or load the save file and ROM onto a flash cartridge.
 
 ### Step 4: Begin Distribution
-Connect a Wireless Adapter, and select `Mystery Gift` in the main menu. (`SavPatcher` will automatically enable Mystery Gift for you.)
-
-\[\[TODO\]\]
+Connect a Wireless Adapter, and select `MYSTERY GIFT` in the main menu. (`SavPatcher` will automatically enable Mystery Gift for you.) Select `WONDER CARDS`. On the next screen, press A. In the menu, select `SEND`. Follow on-screen instructions.
