@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -19,18 +20,24 @@ public class BinCreator implements Runnable, ActionListener {
 	JPanel			panelNews, panelCard, panelEvent;
 
 	JSpinner		newsId;
-	ButtonGroup		newsDistributeGroup, newsColorGroup;
+	ButtonGroup		newsDistributeGroup;
 	JRadioButton	newsNonDistribute, newsReDistribute;
+	JSpinner		newsColor;
 	JRadioButton	newsColorYellow, newsColorCyan, newsColorRed, newsColorGreen, newsColorBlue, newsColorOlive,
 			newsColorGold, newsColorSilver;
-	JTextField		newsText[];
+	JTextField[]	newsText;
 
 	JSpinner		cardId;
 	JSpinner		icon;
-	// TODO reserved elements and flags/color
-	JTextField		cardText[];
+	ButtonGroup		cardDistributeGroup;
+	JRadioButton	cardNonDistribute, cardOneDistribute, cardReDistribute;
+	JSpinner		cardColor;
+	JTextField[]	cardText;
+	// TODO stamp mode
+	// TODO counter mode
 
 	// TODO panelEvent
+	JTextArea		eventScript;
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
