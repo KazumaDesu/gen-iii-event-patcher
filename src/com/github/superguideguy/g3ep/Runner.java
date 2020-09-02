@@ -168,6 +168,11 @@ public class Runner implements Runnable, ActionListener {
 				}
 				break;
 			case "binOpenCalc":
+				/*
+				 * Thread t = new Thread(new BinCreator());
+				 * t.start();
+				 */
+				break;
 			default:
 				JOptionPane.showMessageDialog(null,
 						"WARNING: AN UNKNOWN ERROR HAS OCCURED. THE PROGRAM WILL TERMINATE.",
