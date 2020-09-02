@@ -36,14 +36,7 @@ public class BinCreator implements Runnable, ActionListener {
 	// TODO stamp mode
 	// TODO counter mode
 
-	// TODO panelEvent
 	JTextArea		eventScript;
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
 
 	/**
 	 * @wbp.parser.entryPoint
@@ -57,10 +50,17 @@ public class BinCreator implements Runnable, ActionListener {
 		pane = new JTabbedPane();
 
 		// ...
+		panelNews = new JPanel();
 
 		pane.setSelectedIndex(1);
 		frame.getContentPane().add(pane, null);
 		frame.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
