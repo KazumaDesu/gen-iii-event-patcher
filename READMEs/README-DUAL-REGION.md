@@ -19,13 +19,6 @@ Double-click on the file `G3EP.jar`. If on linux, make sure the execute bit is s
 If you want access to all event islands, `ultimate.bin` is the patch file to use. Otherwise, use a patch file provided to you by a trusted third-party. Make sure that the patch is designed to be (re)distributible. `ultimate.bin` is designed for this.
 
 ### Step 3: Running RomPatcher
-In the same terminal window, run the following command:
-```
-java -jar RomPatcher.jar <OldRom> <NewRom>
-```
-The program takes two arguments. `<OldRom>` is the file location of the save file to be modified. `<NewRom>` is the file location to store the modified save file. Note that if `<NewRom>` does not exist, the program will create it for you. Also note that `<OldRom>` and `<NewRom>` can be the same, but please make sure you have a backup. The patches are hardcoded, so no BIN file is needed.
-
-### Step 3: Running RomPatcher
 In the second tab, supply your current ROM and the location to place the modified ROM. Your current ROM and location to place the modified ROM may be the same, but please make sure you have a backup. Note that if the location to place the modified file does not exist, the program should be able to create it for you. The patches are hardcoded, so no patch file is needed.
 
 ### Step 4: Load the Files
