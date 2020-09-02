@@ -128,7 +128,7 @@ public class Runner implements Runnable, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		boolean	error	= false;
+		boolean	success	= false;
 		String	action	= arg0.getActionCommand();
 		switch (action) {
 			case "savInBrowse":
@@ -148,19 +148,23 @@ public class Runner implements Runnable, ActionListener {
 				break;
 
 			case "savPatcherCalc":
-				error = SavPatcher.patchSav(savInField.getText(), savOutField.getText(), binInField.getText());
-				if (error) {
+				success = SavPatcher.patchSav(savInField.getText(), savOutField.getText(), binInField.getText());
+				if (!success) {
 					JOptionPane.showMessageDialog(null,
 							"An error occured while patching the SAV file. Please check your filepaths and try again.",
 							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 				}
 				break;
 			case "romPatcherCalc":
-				error = RomPatcher.patchRom(romInField.getText(), romOutField.getText());
-				if (error) {
+				success = RomPatcher.patchRom(romInField.getText(), romOutField.getText());
+				if (!success) {
 					JOptionPane.showMessageDialog(null,
 							"An error occured while patching the ROM file. Please check your filepaths and try again.",
 							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, "Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 				}
 				break;
 			case "binOpenCalc":
@@ -175,7 +179,7 @@ public class Runner implements Runnable, ActionListener {
 	private void openFileBrowser(JTextField output) {
 		JFileChooser	browser			= new JFileChooser();
 		int				hasSelectedFile	= browser.showOpenDialog(pane);
-		if (hasSelectedFile == JFileChooser.APPROVE_OPTION) output.setText(browser.getName(browser.getSelectedFile()));
+		if (hasSelectedFile == JFileChooser.APPROVE_OPTION) output.setText(browser.getSelectedFile().getAbsolutePath());
 		else output.setText("");
 	}
 
