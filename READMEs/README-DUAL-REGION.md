@@ -3,7 +3,6 @@ This README is meant for those who wish to distribute an event to FireRed, LeafG
 
 ## Dependencies and Requirements
 * Java version 8, obtainable [here](https://adoptopenjdk.net/).
-* Ability to use a terminal. The terminal is your friend.
 * A compatible ROM, which currently includes:
   * English LeafGreen v1.1
   * English Emerald
@@ -14,14 +13,10 @@ Most users will already have a save file. However, it is **vital** that the save
 
 Once the game has been saved twice, create a backup of your save file. If you are on actual hardware, now is the time to rip your save file.
 
-### Step 2: Running SavPatcher
-Open a terminal window in the folder you installed to. Run the following command:
-```
-java -jar SavPatcher.jar <OldSav> <NewSav> <BinPatch>
-```
-The program takes three arguments. `<OldSav>` is the file location of the save file to be modified. `<NewSav>` is the file location to store the modified save file. Note that if `<NewSav>` does not exist, the program will create it for you. Also note that `<OldSav>` and `<NewSav>` can be the same, but please make sure you have a backup. `<BinPatch>` is the file to patch in. If you want access to all event islands, the included file `ultimate.bin` will do that.
+## Step 2: Running the Program
+Double-click on the file `G3EP.jar`. If on linux, make sure the execute bit is set. In the first tab, supply your current save file, the location to place the modified save file, and the patch file; in that order. Your current save file and location to place the modified save file may be the same, but please make sure you have a backup. Note that if the location to place the modified file does not exist, the program should be able to create it for you.
 
-Make sure that the BIN file is set to be redistributible. `ultimate.bin` has this setting.
+If you want access to all event islands, `ultimate.bin` is the patch file to use. Otherwise, use a patch file provided to you by a trusted third-party. Make sure that the patch is designed to be (re)distributible. `ultimate.bin` is designed for this.
 
 ### Step 3: Running RomPatcher
 In the same terminal window, run the following command:
@@ -29,6 +24,9 @@ In the same terminal window, run the following command:
 java -jar RomPatcher.jar <OldRom> <NewRom>
 ```
 The program takes two arguments. `<OldRom>` is the file location of the save file to be modified. `<NewRom>` is the file location to store the modified save file. Note that if `<NewRom>` does not exist, the program will create it for you. Also note that `<OldRom>` and `<NewRom>` can be the same, but please make sure you have a backup. The patches are hardcoded, so no BIN file is needed.
+
+### Step 3: Running RomPatcher
+In the second tab, supply your current ROM and the location to place the modified ROM. Your current ROM and location to place the modified ROM may be the same, but please make sure you have a backup. Note that if the location to place the modified file does not exist, the program should be able to create it for you. The patches are hardcoded, so no patch file is needed.
 
 ### Step 4: Load the Files
 Load the save file and the ROM onto a flash cartridge. The method varies across the different models, so detailed advice cannot be given here.
