@@ -3,7 +3,6 @@ This README is meant for those just looking to patch an event into a save file.
 
 ## Dependencies and Requirements
 * Java version 8, obtainable [here](https://adoptopenjdk.net/).
-* Ability to use a terminal. The terminal is your friend.
 * A compatible ROM, which currently includes:
   * Any non-Japanese FireRed
   * Any non-Japanese LeafGreen
@@ -18,11 +17,9 @@ Most users will already have a save file. However, it is **vital** that the save
 Once the game has been saved twice, create a backup of your save file. If you are on actual hardware, now is the time to rip your save file.
 
 ### Step 2: Running the Program
-Open a terminal window in the folder you installed to. Run the following command:
-```
-java -jar SavPatcher.jar <OldSav> <NewSav> <BinPatch>
-```
-The program takes three arguments. `<OldSav>` is the file location of the save file to be modified. `<NewSav>` is the file location to store the modified save file. Note that if `<NewSav>` does not exist, the program will create it for you. Also note that `<OldSav>` and `<NewSav>` can be the same, but please make sure you have a backup. `<BinPatch>` is the file to patch in. If you want access to all event islands, the included file `ultimate.bin` will do that.
+Double-click on the file G3EP.jar. If on linux, make sure the execute bit is set. In the first tab, supply your current save file, the location to place the modified save file, and the patch file; in that order. Your current save file and location to place the modified save file may be the same, but please make sure you have a backup. Note that if the location to place the modified file does not exist, the program should be able to create it for you.
+
+If you want access to all event islands, `ultimate.bin` is the patch file to use. Otherwise, use a patch file provided to you by a trusted third-party.
 
 ### Step 3: Restoring the Save File
 Replace the save file that you use (be it on hardware or in an emulation folder somewhere) with the modified file that was created. Visit the second floor of the Pokémon Center, and speak to the person on the far left. This will activate the script.
