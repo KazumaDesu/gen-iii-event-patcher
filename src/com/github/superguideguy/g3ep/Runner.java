@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
@@ -32,7 +34,6 @@ public class Runner implements Runnable, ActionListener {
 	 */
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		frame = new JFrame("Pokémon Generation III Event Patcher");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(0, 0, 600, 190);
@@ -82,12 +83,42 @@ public class Runner implements Runnable, ActionListener {
 
 		panelRom = new JPanel();
 		panelRom.setLayout(null);
-		// ...
+		romInLabel = new JLabel("Current ROM File:");
+		romInLabel.setBounds(10, 10, 130, 20);
+		panelRom.add(romInLabel);
+		romInField = new JTextField();
+		romInField.setBounds(150, 10, 390, 20);
+		panelRom.add(romInField);
+		romInBrowse = new JButton(UIManager.getIcon("FileView.directoryIcon"));
+		romInBrowse.setBounds(550, 10, 20, 20);
+		romInBrowse.setActionCommand("romInBrowse");
+		romInBrowse.addActionListener(this);
+		panelRom.add(romInBrowse);
+		romOutLabel = new JLabel("New ROM File:");
+		romOutLabel.setBounds(10, 40, 130, 20);
+		panelRom.add(romOutLabel);
+		romOutField = new JTextField();
+		romOutField.setBounds(150, 40, 390, 20);
+		panelRom.add(romOutField);
+		romOutBrowse = new JButton(UIManager.getIcon("FileView.directoryIcon"));
+		romOutBrowse.setBounds(550, 40, 20, 20);
+		romOutBrowse.setActionCommand("romOutBrowse");
+		romOutBrowse.addActionListener(this);
+		panelRom.add(romOutBrowse);
+		romPatcherCalc = new JButton("Patch ROM File");
+		romPatcherCalc.setBounds(200, 100, 200, 20);
+		romPatcherCalc.setActionCommand("romPatcherCalc");
+		romPatcherCalc.addActionListener(this);
+		panelRom.add(romPatcherCalc);
 		pane.add("ROM Patcher", panelRom);
 
 		panelBin = new JPanel();
 		panelBin.setLayout(null);
-		// ...
+		binOpenCalc = new JButton("Open Event Creator");
+		binOpenCalc.setBounds(200, 55, 200, 20);
+		binOpenCalc.setActionCommand("binOpenCalc");
+		binOpenCalc.setEnabled(false);
+		panelBin.add(binOpenCalc);
 		pane.add("Event BIN Creator", panelBin);
 
 		pane.setSelectedIndex(0);
@@ -97,8 +128,55 @@ public class Runner implements Runnable, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		boolean	error	= false;
+		String	action	= arg0.getActionCommand();
+		switch (action) {
+			case "savInBrowse":
+				openFileBrowser(savInField);
+				break;
+			case "savOutBrowse":
+				openFileBrowser(savOutField);
+				break;
+			case "binInBrowse":
+				openFileBrowser(binInField);
+				break;
+			case "romInBrowse":
+				openFileBrowser(romInField);
+				break;
+			case "romOutBrowse":
+				openFileBrowser(romOutField);
+				break;
 
+			case "savPatcherCalc":
+				error = SavPatcher.patchSav(savInField.getText(), savOutField.getText(), binInField.getText());
+				if (error) {
+					JOptionPane.showMessageDialog(null,
+							"An error occured while patching the SAV file. Please check your filepaths and try again.",
+							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+				}
+				break;
+			case "romPatcherCalc":
+				error = RomPatcher.patchRom(romInField.getText(), romOutField.getText());
+				if (error) {
+					JOptionPane.showMessageDialog(null,
+							"An error occured while patching the ROM file. Please check your filepaths and try again.",
+							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+				}
+				break;
+			case "binOpenCalc":
+			default:
+				JOptionPane.showMessageDialog(null,
+						"WARNING: AN UNKNOWN ERROR HAS OCCURED. THE PROGRAM WILL TERMINATE.",
+						"A CRITICAL ERROR HAS OCCURED", JOptionPane.ERROR_MESSAGE);
+				System.exit(0);
+		}
+	}
+
+	private void openFileBrowser(JTextField output) {
+		JFileChooser	browser			= new JFileChooser();
+		int				hasSelectedFile	= browser.showOpenDialog(pane);
+		if (hasSelectedFile == JFileChooser.APPROVE_OPTION) output.setText(browser.getName(browser.getSelectedFile()));
+		else output.setText("");
 	}
 
 }

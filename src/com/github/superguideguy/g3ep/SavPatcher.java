@@ -419,7 +419,7 @@ public class SavPatcher {
 		for (int k = 0; k < 2; k++) saveData[section4][version.initialOffset + priorLength + k] = chksm[k];
 		saveData[section4] = repairSaveBlock(saveData[section4]);
 
-		System.err.println(section4);
+		//System.err.println(section4);
 
 		return writeSaveFile(savStringNew, saveData);
 	}
