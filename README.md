@@ -4,6 +4,9 @@ This repository facilitates the transformation of a Generation III Pokémon game
 # Notice
 Currently, error reporting is minimal at best. This may be fixed at a later date. However, given current commitments, I cannot fix bugs in the program currently. Therefore, people using this program should have at least some experience in Java development, in the event they need to debug the program.
 
+# Notice 2
+I have recently acquired a copy of English FireRed v1.1. As I feared, its function location differs from LeafGreen v1.1. This poses a more immediate issue; in ultimate.bin, one of the commands in FRLG track is "call 0x081A6541". In LeafGreen, this resets the event island encounters. In FireRed, it jumps into the function before the target. I do not have time to correct this now (I will try to correct it tonight), but in the mean time, using a hex editor, zero out 0x5EC-0x5F0 (inclusive) in ultimate.bin.
+
 ## Background
 The Generation III Pokémon games introduced the Mystery Gift feature. Mystery Gift can allow players to receive special Pokémon, or allow players to access otherwise inaccessable locations. The Generation III implementation is unusual in that rather than merely activating a flag or two, it downloads a script into the save data, to be executed at a later time. This 1 kilobyte script can contain any valid script instruction, including ones that enable arbitrary code execution.
 
