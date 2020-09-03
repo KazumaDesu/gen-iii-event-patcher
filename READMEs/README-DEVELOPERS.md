@@ -5,7 +5,7 @@ This README is meant for those who wish to develop an event.
 * A hex editor.
 
 ## Usage
-I'm going to be altering this heavily at some point in the future, so I dn't feel like investing massive amounts of time into this file right now.
+I'm going to be altering this heavily at some point in the future, so I don't feel like investing massive amounts of time into this file right now.
 
 The basics are this:
 * Wonder News starts at 0x000
