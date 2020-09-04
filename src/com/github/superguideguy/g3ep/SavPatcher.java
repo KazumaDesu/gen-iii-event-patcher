@@ -470,7 +470,7 @@ public class SavPatcher {
 enum SavVersion {
 
 	FRLG(0x067, 0x02, 0x2A0), // bit 1: 7654|3210
-	EMERALD(0x40B, 0x08, 0x3AC); // bit 4
+	EMERALD(0x40B, 0x08, 0x3AC); // bit 3
 
 	final int	mysteryGiftFlagByte, mysteryGiftFlagBit;
 	final int	initialOffset;
