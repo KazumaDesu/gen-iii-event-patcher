@@ -5,27 +5,27 @@ public enum Version {
 	// @formatter:off
 	// bits are 7654|3210
 
-	JapaneseRuby,
-	JapaneseRubyBox,
-	JapaneseSapphire,
-	JapaneseSapphireBox	(new int[][] {{0x0000,0x00},{0x0000,0x00}}, 0x0000,0x0000,0x0000, 0x0000,0x0000,0x0000,0x0000, 0x0000,0x0000), // TODO
-	JapaneseFireRed0,
-	JapaneseFireRed1,
-	JapaneseLeafGreen0,
-	JapaneseLeafGreen1,
-	JapaneseEmerald,
+	JapaneseRuby		(false, "AXVJ", 0x00,  0,                     null, 0x000000, 0x000000),
+	JapaneseRubyBox		(false, null  , null,  1,                     null, 0x000000, 0x000000),
+	JapaneseSapphire	(false, "AXPJ", 0x00,  2,                     null, 0x000000, 0x000000),
+	JapaneseSapphireBox	(false,	null  , null,  3,                     null, 0x000000, 0x000000),
+	JapaneseFireRed0	(false, "BPRJ", 0x00,  4,                     null,     null,     null),
+	JapaneseFireRed1	(false, "BPRJ", 0x01,  5,                     null,     null,     null),
+	JapaneseLeafGreen0	(false, "BPGJ", 0x00,  6,                     null,     null,     null),
+	JapaneseLeafGreen1	(false, "BPGJ", 0x01,  7,                     null,     null,     null),
+	JapaneseEmerald		(false, "BPEJ", 0x00,  8,                     null,     null,     null),
 
-	EnglishRuby0,
-	EnglishRuby1,
-	EnglishRuby2,
-	EnglishSapphire0,
-	EnglishSapphire1,
-	EnglishSapphire2,
-	EnglishFireRed0,
-	EnglishFireRed1,
-	EnglishLeafGreen0,
-	EnglishLeafGreen1,
-	EnglishEmerald		(new int[][] {{0x2405,0x40},{0x240B,0x08}}, 0x0000,0x4378,0x0BEC, 0x0000,0x43AC,0x0000,0x4490, 0x48A8,0x4C94),
+	EnglishRuby0		(true , "AXVE", 0x00,  9, SupportPackage.INTL_RS  , 0x000000, 0x000000),
+	EnglishRuby1		(true , "AXVE", 0x01, 10, SupportPackage.INTL_RS  , 0x000000, 0x000000),
+	EnglishRuby2		(true , "AXVE", 0x02, 11, SupportPackage.INTL_RS  , 0x000000, 0x000000),
+	EnglishSapphire0	(true , "AXPE", 0x00, 12, SupportPackage.INTL_RS  , 0x000000, 0x000000),
+	EnglishSapphire1	(true , "AXPE", 0x01, 13, SupportPackage.INTL_RS  , 0x000000, 0x000000),
+	EnglishSapphire2	(true , "AXPE", 0x02, 14, SupportPackage.INTL_RS  , 0x000000, 0x000000),
+	EnglishFireRed0		(false, "BPRE", 0x00, 15, SupportPackage.INTL_FRLG,     null,     null),
+	EnglishFireRed1		(true , "BPRE", 0x01, 16, SupportPackage.INTL_FRLG, 0x14444c, 0x14448c),
+	EnglishLeafGreen0	(false, "BPGE", 0x00, 17, SupportPackage.INTL_FRLG,     null,     null),
+	EnglishLeafGreen1	(true , "BPGE", 0x01, 18, SupportPackage.INTL_FRLG, 0x144428, 0x144468),
+	EnglishEmerald		(true , "BPEE", 0x00, 19, SupportPackage.INTL_EM  , 0x01b6a0, 0x01b6ec),
 
 	FrenchRuby0,
 	FrenchRuby1,
@@ -33,7 +33,7 @@ public enum Version {
 	FrenchSapphire1,
 	FrenchFireRed,
 	FrenchLeafGreen,
-	FrenchEmerald,
+	FrenchEmerald		(false, "BPEF", 0x00, 26, SupportPackage.INTL_EM  ,     null,     null),
 
 	ItalianRuby0,
 	ItalianRuby1,
@@ -41,7 +41,7 @@ public enum Version {
 	ItalianSapphire1,
 	ItalianFireRed,
 	ItalianLeafGreen,
-	ItalianEmerald,
+	ItalianEmerald		(false, "BPEI", 0x00, 33, SupportPackage.INTL_EM  ,     null,     null),
 
 	GermanRuby0,
 	GermanRuby1,
@@ -49,7 +49,7 @@ public enum Version {
 	GermanSapphire1,
 	GermanFireRed,
 	GermanLeafGreen,
-	GermanEmerald,
+	GermanEmerald		(false, "BPED", 0x00, 40, SupportPackage.INTL_EM  ,     null,     null),
 
 	SpanishRuby0,
 	SpanishRuby1,
@@ -57,37 +57,39 @@ public enum Version {
 	SpanishSapphire1,
 	SpanishFireRed,
 	SpanishLeafGreen,
-	SpanishEmerald,
+	SpanishEmerald		(false, "BPES", 0x00, 47, SupportPackage.INTL_EM  ,     null,     null),
 
 	;
+	// @formatter:on
 
-	public final int[][] enableBits;
-	public final int rsBerryOffset;
-	public final int frlgBerryOffset;
-	public final int trainerOffset;
-	public final int jpnWonderNewsOffset;
-	public final int intlWonderNewsOffset;
-	public final int jpnWonderCardOffset;
-	public final int intlWonderCardOffset;
-	public final int eventScriptOffset;
-	public final int recordItemOffset;
+	public final boolean		isCurrentlySupported;
+	public final String			expectedGameCode;
+	public final Byte			expectedRevisionNumber;
+	public final Integer		supportByteLocation;
+	public final Byte			supportByteContents;
+	public final SupportPackage	sav;
+	public final Integer		romVmechStart;
+	public final Integer		romVmechEnd;
 
-	Version(int[][] eB, int...ints) {
-		enableBits = eB;
-
-		rsBerryOffset = ints[0];
-		frlgBerryOffset = ints[1];
-		trainerOffset = ints[2];
-
-		jpnWonderNewsOffset = ints[3];
-		intlWonderNewsOffset = ints[4];
-		jpnWonderCardOffset = ints[5];
-		intlWonderCardOffset = ints[6];
-
-		eventScriptOffset = ints[7];
-		recordItemOffset = ints[8];
+	Version(boolean a, String b, Integer c, Integer d, SupportPackage e, Integer f, Integer g) {
+		isCurrentlySupported = a;
+		supportByteLocation = d / 8;
+		supportByteContents = (byte) (1 << (d % 8));
+		if (a) {
+			expectedGameCode = b;
+			expectedRevisionNumber = (byte) ((int) c);
+			sav = e;
+			romVmechStart = f;
+			romVmechEnd = g;
+		} else {
+			expectedGameCode = null;
+			expectedRevisionNumber = null;
+			sav = null;
+			romVmechStart = null;
+			romVmechEnd = null;
+		}
 	}
 
-	// @formatter:on
+
 
 }
