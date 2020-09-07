@@ -32,15 +32,16 @@ public enum SupportPackage {
 	public final int[][]	requiredBitEnables;
 	public final int[]		offsets;
 
-	public static final int	RS_BERRY	= 1;
-	public static final int	EM_BERRY	= 2;
-	public static final int	C_TRAINER	= 3;
-	public static final int	JPN_NEWS	= 4;
-	public static final int	INTL_NEWS	= 5;
-	public static final int	JPN_CARD	= 6;
-	public static final int	INTL_CARD	= 7;
-	public static final int	C_SCRIPT	= 8;
-	public static final int	RECORD_ITEM	= 9;
+	public static final int	RS_BERRY	= 0;
+	public static final int	EM_BERRY	= 1;
+	public static final int	C_TRAINER	= 2;
+	public static final int	JPN_NEWS	= 3;
+	public static final int	INTL_NEWS	= 4;
+	public static final int	JPN_CARD	= 5;
+	public static final int	INTL_CARD	= 6;
+	public static final int	C_SCRIPT	= 7;
+	public static final int	RECORD_ITEM	= 8;
+	public static final int	NUM_FIELDS	= 9;
 
 	SupportPackage(int[][] a, int[] b) {
 		requiredBitEnables = a;
