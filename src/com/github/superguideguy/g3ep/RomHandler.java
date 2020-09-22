@@ -27,11 +27,11 @@ public class RomHandler {
 
 	//===============================================================================================================//
 
-	public static void patchRom(byte[] rom) {
+	public static boolean patchRom(byte[] rom) {
 		Version version = getVersion(rom);
-		if (!version.isCurrentlySupported) return;
-		if (version.romVmechStart == null) return;
-		if (version.romVmechStart == 0) return;
+		if (!version.isCurrentlySupported) return false;
+		if (version.romVmechStart == null) return false;
+		if (version.romVmechStart == 0) return false;
 
 		for (int i = version.romVmechStart; i < version.romVmechEnd; i++) rom[i] = 0x00;
 		rom[version.romVmechStart + 0] = 0x00; // PUSH LR
@@ -42,6 +42,7 @@ public class RomHandler {
 		rom[version.romVmechStart + 5] = (byte) 0xbc;
 		rom[version.romVmechStart + 6] = 0x08; // BX r1
 		rom[version.romVmechStart + 7] = 0x47;
+		return true;
 	}
 
 }

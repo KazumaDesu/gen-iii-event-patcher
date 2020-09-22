@@ -28,7 +28,6 @@ public class EventPatcherRunner implements ActionListener, Runnable {
 	 */
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		frame = new JFrame("Pokémon Generation III Event Patcher");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(0, 0, 600, 220); // h=190?
@@ -120,8 +119,6 @@ public class EventPatcherRunner implements ActionListener, Runnable {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
 		boolean	success	= false;
 		String	action	= arg0.getActionCommand();
 		byte[]	rom		= null;
@@ -172,10 +169,24 @@ public class EventPatcherRunner implements ActionListener, Runnable {
 							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
 					break;
 				}
+				if (!version.isCurrentlySupported) {
+					JOptionPane.showMessageDialog(null,
+							"This game version is not currently supported. Please try again next release.",
+							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+					break;
+				}
 				success = SavPatcher.patchSav(sav, version, patch);
 				if (!success) {
 					JOptionPane.showMessageDialog(null,
 							"The patch file is corrupt or incompatible with this game version. Please check your filepath and try again.",
+							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+					break;
+				}
+
+				success = FileHandler.writeSaveFile(savOutField.getText(), sav);
+				if (!success) {
+					JOptionPane.showMessageDialog(null,
+							"The SAV file could not be written to. Please check your filepath and try again.",
 							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
 					break;
 				}
@@ -189,7 +200,22 @@ public class EventPatcherRunner implements ActionListener, Runnable {
 							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
 					break;
 				}
-				RomHandler.patchRom(rom);
+				success = RomHandler.patchRom(rom);
+				if (!success) {
+					JOptionPane.showMessageDialog(null,
+							"This game version is not currently supported. Please try again next release.",
+							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+					break;
+				}
+
+				success = FileHandler.writeRomFile(romOutField.getText(), rom);
+				if (!success) {
+					JOptionPane.showMessageDialog(null,
+							"The ROM file could not be written to. Please check your filepath and try again.",
+							"Error: Patch failed", JOptionPane.WARNING_MESSAGE);
+					break;
+				}
+
 				JOptionPane.showMessageDialog(null, "Success!", "Success!", JOptionPane.INFORMATION_MESSAGE);
 				break;
 			case "binCreatorOpen":

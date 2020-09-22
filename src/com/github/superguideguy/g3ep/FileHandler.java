@@ -36,4 +36,20 @@ public class FileHandler {
 		return romFile;
 	}
 
+	public static boolean writeSaveFile(String savString, byte[][] data) {
+		byte[] savData = new byte[data.length * data[0].length];
+		for (int i = 0; i < savData.length; i++) savData[i] = data[i / data[0].length][i % data[0].length];
+		return writeRomFile(savString, savData);
+	}
+
+	public static boolean writeRomFile(String romString, byte[] data) {
+		Path romPath = Paths.get(romString);
+		try {
+			Files.write(romPath, data);
+		} catch (IOException e) {
+			return false;
+		}
+		return true;
+	}
+
 }

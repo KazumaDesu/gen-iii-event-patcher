@@ -1,0 +1,35 @@
+section (opcode = RS_BERRY; support = [INTL_RS];) {
+	name = "123456"; // 6 characters + 0xFF					// 0x000 - 0x006
+	firmness = 5; // From 1 (very soft) to 5 (very hard)	// 0x007
+	size = 0xFFFF; // Size in millimeters					// 0x008 - 0x009
+	max_yield = 0xFF;										// 0x00A
+	min_yield = 0x01;										// 0x00B
+	[[TODO]] tagline_1 // offsets							// 0x00C - 0x00F
+	[[TODO]] tagline_2										// 0x010 - 0x013
+	hours_per_stage = 0x01;									// 0x014
+	[[TODO]] flavor_spicy // signed integer? Only +-1?		// 0x015
+	[[TODO]] flavor_dry										// 0x016
+	[[TODO]] flavor_sweet									// 0x017
+	[[TODO]] flavor_bitter									// 0x018
+	[[TODO]] flavor_sour									// 0x019
+	smoothness = 0x00;										// 0x01A
+	// padding												// 0x01B
+	[[TODO]] sprite											// 0x01C - 0x49B
+	[[TODO]] palette										// 0x49C - 0x4BB
+	[[TODO]] tagline_3 // text?								// 0x4BC - 0x4E8
+	[[TODO]] tagline_4										// 0x4E9 - 0x515
+	[[TODO]] bag_effect										// 0x516 - 0x51F
+	[[TODO]] padding?										// 0x520 - 0x527
+	[[TODO]] held_item_effect								// 0x528 - 0x529
+	// padding												// 0x52A - 0x52B
+	// checksum												// 0x52C - 0x52F
+}
+
+unsigned long berryChecksum(char* berry) {
+	int x;
+	unsigned long checksum = 0;
+	for(x = 0;  x < 0x52C; x++)
+		if(x < 0xC || x >= 0x14)
+			checksum += (berry[x] & 0xFF);
+	return checksum;
+}

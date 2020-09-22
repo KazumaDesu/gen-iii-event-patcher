@@ -96,6 +96,8 @@ public class SavPatcher {
 		boolean[]	patchesApplied		= new boolean[SupportPackage.NUM_FIELDS];
 		int			patchPointer		= 0;
 
+		// TODO Implement MG/ME bit setting
+
 		while (patchPointer < patch.length) {
 			int opcode = patch[patchPointer++];
 			patchPointer += version.supportByteLocation;
