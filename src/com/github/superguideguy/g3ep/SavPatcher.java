@@ -91,7 +91,7 @@ public class SavPatcher {
 
 	//===============================================================================================================//
 
-	public void patchSav(byte[][] sav, Version version, byte[] patch) {
+	public static boolean patchSav(byte[][] sav, Version version, byte[] patch) {
 		int			currentZeroSection	= getZeroSection(sav);
 		boolean[]	patchesApplied		= new boolean[SupportPackage.NUM_FIELDS];
 		int			patchPointer		= 0;
@@ -106,6 +106,7 @@ public class SavPatcher {
 			if (patchLength == 0) {
 				System.err.println("Patch error 1");
 				// TODO determine response
+				return false;
 			}
 			int savSection = getSavSection(currentZeroSection, version.sav.offsets[opcode] / 0x1000);
 
@@ -116,12 +117,15 @@ public class SavPatcher {
 				else {
 					System.err.println("Patch error 2");
 					// TODO determine response
+					return false;
 				}
 			}
 			patchPointer += patchLength;
 		}
 
 		repairSavFile(sav);
+		for (int i = 0; i < patchesApplied.length; i++) if (patchesApplied[i]) return true;
+		return false;
 	}
 
 }
