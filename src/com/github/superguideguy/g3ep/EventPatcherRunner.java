@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
-public class Runner implements ActionListener, Runnable {
+public class EventPatcherRunner implements ActionListener, Runnable {
 
 	JFrame		frame;
 	JPanel		panel;
@@ -214,7 +214,7 @@ public class Runner implements ActionListener, Runnable {
 	}
 
 	public static void main(String[] args) {
-		Thread t = new Thread(new Runner());
+		Thread t = new Thread(new EventPatcherRunner());
 		t.start();
 	}
 
