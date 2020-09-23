@@ -97,6 +97,7 @@ public class SavPatcher {
 		int			patchPointer		= 0;
 
 		// TODO Implement MG/ME bit setting
+		// TODO Implement file header (see PatchCompatibility.ods on desktop)
 
 		while (patchPointer < patch.length) {
 			int opcode = patch[patchPointer++];
