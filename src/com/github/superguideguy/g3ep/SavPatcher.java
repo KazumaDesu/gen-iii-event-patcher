@@ -107,7 +107,6 @@ public class SavPatcher {
 			int patchLength = getPatchLength(opcode);
 			if (patchLength == 0) {
 				System.err.println("Patch error 1");
-				// TODO determine response
 				return false;
 			}
 			int savSection = getSavSection(currentZeroSection, version.sav.offsets[opcode] / 0x1000);
@@ -116,11 +115,6 @@ public class SavPatcher {
 				boolean successfullyApplied = applyPatch(sav[savSection], version.sav.offsets[opcode] % 0x1000, patch,
 						patchPointer, patchLength);
 				if (successfullyApplied) patchesApplied[opcode] = true;
-				else {
-					System.err.println("Patch error 2");
-					// TODO determine response
-					return false;
-				}
 			}
 			patchPointer += patchLength;
 		}
