@@ -94,10 +94,23 @@ public class SavPatcher {
 	public static boolean patchSav(byte[][] sav, Version version, byte[] patch) {
 		int			currentZeroSection	= getZeroSection(sav);
 		boolean[]	patchesApplied		= new boolean[SupportPackage.NUM_FIELDS];
-		int			patchPointer		= 0;
+		int			patchPointer		= 5;
 
 		// TODO Implement MG/ME bit setting
-		// TODO Implement file header (see PatchCompatibility.ods on desktop)
+
+		if ((patch[0] != 0x67) || (patch[1] != 0x33) || (patch[2] != 0x65) || (patch[3] != 0x70)
+				|| (patch[4] != 0x01)) {
+			System.err.println("Patch header error 1");
+			return false;
+		}
+		patchPointer += version.supportByteLocation;
+		boolean isSupportedAtAll = (version.supportByteContents & patch[patchPointer]) > 0;
+		patchPointer += 6 - version.supportByteLocation;
+		if (!isSupportedAtAll) {
+			System.err.println("Patch header error 2");
+			return false;
+		}
+		patchPointer = 16;
 
 		while (patchPointer < patch.length) {
 			int opcode = patch[patchPointer++];
