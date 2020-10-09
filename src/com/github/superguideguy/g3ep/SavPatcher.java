@@ -117,6 +117,7 @@ public class SavPatcher {
 			patchPointer += version.supportByteLocation;
 			boolean isSupported = (version.supportByteContents & patch[patchPointer]) > 0;
 			patchPointer += 6 - version.supportByteLocation;
+			patchPointer++;
 
 			int patchLength = getPatchLength(opcode);
 			if (patchLength == 0) {
