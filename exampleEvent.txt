@@ -54,3 +54,7 @@ section (opcode = EM_BERRY; support = [INTL_FRLG, INTL_EM};) {
 	[[TODO]] held_item_effect								// 0x02E - 0x02F
 	// checksum												// 0x030 - 0x033
 }
+
+section (opcode = C_TRAINER; support = {};) {
+	
+}
