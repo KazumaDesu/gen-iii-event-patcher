@@ -43,7 +43,7 @@ public class SavPatcher {
 				patchLength = 0x91 + 20;
 				break;
 			case SupportPackage.INTL_CARD:
-				patchLength = 0x162 + 40;
+				patchLength = 0x150;
 				break;
 			case SupportPackage.C_SCRIPT:
 				patchLength = 1004;
