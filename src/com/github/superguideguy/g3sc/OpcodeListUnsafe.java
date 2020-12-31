@@ -52,6 +52,14 @@ public class OpcodeListUnsafe {
 		x("callstd_if_ge",			3, 0x0b, 0x04);
 		x("callstd_if_ne",			3, 0x0b, 0x05);
 		// ...
+		x("setmysteryeventstatus",	2, 0x0e);
+		x("setbank32_imm",			6, 0x0f);
+		x("setbank8_imm",			3, 0x10);
+		x("writebytetoaddr_imm",	6, 0x11);
+		x("setbank8_addr",			6, 0x12);
+		x("writebytetoaddr_bank",	6, 0x13);
+		x("copybanks",				3, 0x14);
+		x("copybytes", 				9, 0x15);
 		x("setvar",					5, 0x16);
 		x("addvar",					5, 0x17);
 		x("subvar",					5, 0x18);
@@ -75,14 +83,43 @@ public class OpcodeListUnsafe {
 		x("clearflag",				3, 0x2a);
 		x("checkflag",				3, 0x2b);
 		// ...
+		x("playse",					3, 0x2f);
+		x("waitse",					1, 0x30);
+		x("playfanfare",			3, 0x31);
+		x("waitfanfare",			1, 0x32);
+		x("playbgm",				4, 0x33);
+		x("savebgm",				3, 0x34);
+		x("fadedefaultbgm",			1, 0x35);
+		x("fadenewbgm",				3, 0x36);
+		x("fadeoutbgm",				2, 0x37);
+		x("fadeinbgm",				2, 0x38);
+		x("warp",					8, 0x39);
+		x("warpsilent",				8, 0x3a);
+		x("warpdoor",				8, 0x3b);
+		x("warphole",				3, 0x3c);
+		x("warpteleport",			8, 0x3d);
+		x("setwarp",				8, 0x3e);
+		x("setdynamicwarp",			8, 0x3f);
+		x("setdivewarp",			8, 0x40);
+		x("setholewarp",			8, 0x41);
+		x("getplayerxy",			5, 0x42);
+		x("getpartysize",			1, 0x43);
+		x("additem",				5, 0x44);
+		x("removeitem",				5, 0x45);
+		x("checkitemspace",			5, 0x46);
 		x("checkitem",				5, 0x47);
+		x("checkitemtype",			3, 0x48);
+		x("addpcitem",				5, 0x49);
+		x("checkpcitem",			5, 0x4a);
 		// ...
 		x("faceplayer",				1, 0x5a);
 		// ...
 		x("waitmessage",			1, 0x66);
-		// ...
+		x("message",				5, 0x67);
+		x("closemessage",			1, 0x68);
+		x("lockall",				1, 0x69);
 		x("lock",					1, 0x6a);
-		// ...
+		x("releaseall",				1, 0x6b);
 		x("release",				1, 0x6c);
 		x("waitbuttonpress",		1, 0x6d);
 		// ...
