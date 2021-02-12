@@ -31,5 +31,7 @@ For `Event File`, select the patch file you have obtained. Make sure you trust t
 ### I want to create a distribution ROM from a patch
 First, make sure the patch has the proper flag set for redistribution. By default, `ultimate.g3ep` has this flag set correctly. Second, determine if both FireRed/LeafGreen and Emerald can receive the patch. If the answer is no (that is, the patch is only meant for the Kanto games, or only meant for Emerald), see the above cases (no ROM modification is necessary). If the answer is yes, fill in the fifth box for the location to place the modified ROM (make sure it is a file, not a folder/directory). Then, press both `Patch ROM File` and `Patch SAV File`. Finally, add both ROM and SAV to your choice of flash cart.
 
+To distribute, connect a Wireless Adapter, and select MYSTERY GIFT in the main menu. (SavPatcher will automatically enable Mystery Gift for you.) Select WONDER CARDS. On the next screen, press A. In the menu, select SEND. Follow on-screen instructions.
+
 ### I want to create a patch
 Currently, patches must be made by hand. The format patches are expected in is specified on the wiki. There is a helper package called `g3sc` that can be found in the source code. It contains a (very basic) compiler for custom event scripts (section 7). The class `ChecksumCreator` in package `g3ec` may also be of assistance. Also check the first post [here](https://projectpokemon.org/home/forums/topic/35903-gen-3-mystery-eventgift-research/).
